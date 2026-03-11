@@ -10,4 +10,7 @@ Specialized skills for AI coding assistants.
 **NotebookLM Knowledge Base Organizer** (`skills/notebooklm-knowledge-base-organizer/`)
 - Converts formats (PPTX→PDF, XLSX→CSV) and organizes files for NotebookLM
 
+**Desloppify** (`skills/desloppify/`)
+- Improves code quality by auditing maintainability issues and working through `desloppify` findings
+
 Skills are automatically invoked when you describe matching tasks.
