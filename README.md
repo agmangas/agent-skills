@@ -19,6 +19,6 @@ Specialized skills for AI coding assistants.
 > https://gist.github.com/LuD1161/84102959a9375961ad9252e4d16ed592
 
 **Codex Review** (`skills/codex-review/`)
-- Iteratively reviews implementation plans using OpenAI Codex and Claude—Claude revises the plan based on Codex feedback up to 5 rounds, ensuring correctness and risk reduction before approval.
+- Iteratively reviews implementation plans or local code changes using OpenAI Codex and Claude—Claude revises the plan or code based on Codex feedback up to 5 rounds, ensuring correctness, best practices, and risk reduction before approval.
 
 Skills are automatically invoked when you describe matching tasks.
