@@ -13,4 +13,12 @@ Specialized skills for AI coding assistants.
 **Desloppify** (`skills/desloppify/`)
 - Improves code quality by auditing maintainability issues and working through `desloppify` findings
 
+> [!IMPORTANT]
+> Attribution for the original *Codex Review* skill:
+> 
+> https://gist.github.com/LuD1161/84102959a9375961ad9252e4d16ed592
+
+**Codex Review** (`skills/codex-review/`)
+- Iteratively reviews implementation plans using OpenAI Codex and Claude—Claude revises the plan based on Codex feedback up to 5 rounds, ensuring correctness and risk reduction before approval.
+
 Skills are automatically invoked when you describe matching tasks.
