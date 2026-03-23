@@ -28,8 +28,68 @@ Review all pending changes (`git diff` and `git diff --staged`).
 
 ### 3. Generate Commit Message
 Draft a concise message (subject < 72 chars) that perfectly matches the detected style.
-- **Gitmoji Integration:** If Gitmoji is detected, run `curl -s https://gitmoji.dev/api/gitmojis`, parse the JSON, and prepend the most contextually appropriate emoji.
+- **Gitmoji Integration:** If Gitmoji is detected, choose exactly one Gitmoji from the embedded guide below based on the dominant user-facing intent of the commit. Do not rotate emojis randomly for variety, and do not default to a small handful of familiar emojis unless they are genuinely the best fit.
+- **Pick the dominant change:** Prefer the primary reason the commit exists, not every file touched.
+- **One emoji per atomic commit:** Split unrelated work into separate commits instead of stacking multiple emojis into one subject.
 - **Conventional Commits:** Include appropriate scope if used in the repo (e.g., `feat(auth):`).
+
+#### Gitmoji Quick Reference
+Use this compact embedded set for the vast majority of commits:
+
+- `✨` Introduce new features.
+- `🐛` Fix a bug.
+- `🩹` Apply a simple fix for a non-critical issue.
+- `🚑️` Critical hotfix.
+- `♻️` Refactor code.
+- `🎨` Improve structure / format of the code.
+- `⚡️` Improve performance.
+- `🔥` Remove code or files.
+- `🚚` Move or rename resources such as files, paths, or routes.
+- `📝` Add or update documentation.
+- `💬` Add or update text and literals.
+- `✅` Add, update, or pass tests.
+- `🧪` Add a failing test.
+- `🔒️` Fix security or privacy issues.
+- `🔐` Add or update secrets.
+- `🔧` Add or update configuration files.
+- `🔨` Add or update development scripts.
+- `👷` Add or update CI build system.
+- `💚` Fix CI build.
+- `🚨` Fix compiler / linter warnings.
+- `➕` Add a dependency.
+- `➖` Remove a dependency.
+- `⬆️` Upgrade dependencies.
+- `⬇️` Downgrade dependencies.
+- `📌` Pin dependencies to specific versions.
+- `🏷️` Add or update types.
+- `🗃️` Perform database related changes.
+- `🌱` Add or update seed files.
+- `🏗️` Make architectural changes.
+- `💄` Add or update the UI and style files.
+- `♿️` Improve accessibility.
+- `📱` Work on responsive design.
+- `💥` Introduce breaking changes.
+- `🔖` Release / version tags.
+- `👽️` Update code due to external API changes.
+- `🧱` Infrastructure related changes.
+- `🧑‍💻` Improve developer experience.
+
+For rarer commit types, use the closest semantic Gitmoji only if the repository clearly uses that broader Gitmoji vocabulary.
+
+#### Gitmoji Selection Rules
+- Prefer `🐛` over `🩹` for normal bug fixes. Reserve `🩹` for very small, non-critical fixes.
+- Prefer `♻️` for behavior-preserving refactors. If behavior changes, pick the behavior change instead.
+- Prefer `🔧` for config changes and `🔨` for dev scripts/tooling. Do not use them interchangeably.
+- Prefer `👷` for CI workflow files, and `💚` when the point of the commit is fixing a broken CI run.
+- Prefer `✅` when the commit is mainly about tests. If tests only support a feature or bug fix, use `✨` or `🐛`.
+- Prefer `📝` for docs-only commits. If docs accompany code, choose the code-related emoji.
+- Prefer `🚚` for renames and moves, even if imports or references also need small follow-up edits.
+- Prefer `🚨` for commits that mainly silence linter, compiler, or type-check warnings. If the same commit also fixes a real bug or adds behavior, use the bug or feature emoji instead.
+- Prefer `⬆️`, `⬇️`, and `📌` for dependency version changes. Use `➕` or `➖` only when the dependency itself is being added or removed.
+- Prefer `🏷️` for type-only changes. If the type update is only part of a bug fix, refactor, or feature, choose the higher-level intent instead.
+- Prefer `💬` for user-facing copy and string literal changes, and `💡` for source-code comments. Do not use `📝` unless the change is actual documentation.
+- Prefer `🗃️` for schema, migration, or database-layer changes, and `🌱` specifically for seed data. If the main change is business logic that happens to touch the database, use the business logic emoji.
+- Prefer `🏗️` for structural or architectural redesigns that reshape modules, boundaries, or system layout. Use `♻️` for smaller local refactors that stay within the existing architecture.
 
 ### 4. Execute Commit
 Run the commit with the generated message:
