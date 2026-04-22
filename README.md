@@ -13,6 +13,9 @@ Specialized skills for AI coding assistants.
 **Desloppify** (`skills/desloppify/`)
 - Improves code quality by auditing maintainability issues and working through `desloppify` findings
 
+**Plainspoken** (`skills/plainspoken/`)
+- Makes agent output clear, concise, and easy to understand without dumbing down software engineering content
+
 > [!IMPORTANT]
 > Attribution for the original *Codex Review* skill:
 > 
