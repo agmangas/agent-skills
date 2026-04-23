@@ -1,27 +1,20 @@
 # Agent Skills
 
-Specialized skills for AI coding assistants.
+Installable skills for AI coding assistants.
 
 ## Skills
 
-**Git Style-Aware Commit** (`skills/git-style-commit/`)
-- Analyzes commit history and creates commits matching repository style
+| Skill | Path | Purpose |
+| --- | --- | --- |
+| Git Style-Aware Commit | `skills/git-style-commit/` | Analyzes commit history and creates commits matching repository style. |
+| NotebookLM Knowledge Base Organizer | `skills/notebooklm-knowledge-base-organizer/` | Converts formats such as PPTX to PDF and XLSX to CSV, then organizes files for NotebookLM. |
+| Desloppify | `skills/desloppify/` | Improves code quality by auditing maintainability issues and working through `desloppify` findings. |
+| Plainspoken | `skills/plainspoken/` | Makes agent output clear, concise, and easy to understand without dumbing down software engineering content. |
+| Local Delegation | `skills/local-delegation/` | Offloads bounded codebase browsing, inventories, extraction, log triage, and simple single-file reasoning to a bundled LM Studio helper while keeping final judgment in the main model. |
+| Codex Review | `skills/codex-review/` | Iteratively reviews implementation plans or local code changes using OpenAI Codex and Claude, then revises based on feedback before approval. |
 
-**NotebookLM Knowledge Base Organizer** (`skills/notebooklm-knowledge-base-organizer/`)
-- Converts formats (PPTX→PDF, XLSX→CSV) and organizes files for NotebookLM
+## Attribution
 
-**Desloppify** (`skills/desloppify/`)
-- Improves code quality by auditing maintainability issues and working through `desloppify` findings
+Local Delegation was inspired by [alisorcorp/ask-local](https://github.com/alisorcorp/ask-local). Its bundled helper scripts are adapted from that project; the original MIT license is included at `skills/local-delegation/LICENSE.ask-local.txt`.
 
-**Plainspoken** (`skills/plainspoken/`)
-- Makes agent output clear, concise, and easy to understand without dumbing down software engineering content
-
-> [!IMPORTANT]
-> Attribution for the original *Codex Review* skill:
-> 
-> https://gist.github.com/LuD1161/84102959a9375961ad9252e4d16ed592
-
-**Codex Review** (`skills/codex-review/`)
-- Iteratively reviews implementation plans or local code changes using OpenAI Codex and Claude—Claude revises the plan or code based on Codex feedback up to 5 rounds, ensuring correctness, best practices, and risk reduction before approval.
-
-Skills are automatically invoked when you describe matching tasks.
+Codex Review was inspired by the original [Codex Review skill gist](https://gist.github.com/LuD1161/84102959a9375961ad9252e4d16ed592).
