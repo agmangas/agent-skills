@@ -14,8 +14,17 @@ This skill instructs the agent to autonomously analyze repository commit convent
 
 ## 🛠️ Execution Steps
 
-### 1. Analyze Commit Style
-Run `git log -n 15 --pretty=format:"%s"` to detect the prevailing pattern:
+### 1. Inspect Repository State and Analyze Commit Style
+First inspect all pending work:
+```bash
+git status --short
+git diff
+git diff --staged
+```
+
+If there are no pending changes, report that and do not create an empty commit unless the user explicitly requests one.
+
+Then run `git log -n 15 --pretty=format:"%s"` to detect the prevailing pattern:
 - **Format:** Conventional Commits (`feat:`, `fix:`), bracket prefixes (`[API]`), or plain text.
 - **Capitalization & Tense:** Sentence case, title case, lowercase; present vs. past tense.
 - **Emoji Usage:** Detect if Gitmoji or other emoji conventions are used.
@@ -25,6 +34,8 @@ Review all pending changes (`git diff` and `git diff --staged`).
 - **Logical Grouping:** Do NOT blindly `git add -A`. Group changes into atomic, focused commits (e.g., separate bug fixes from new features).
 - **Hunk-Level Staging:** Simulate `git add -p` by staging specific files (`git add <file>`) or applying patch files for specific hunks.
 - **Sequential Commits:** Create multiple commits sequentially if changes encompass distinct logical units.
+- **Preserve User Work:** Stage only changes belonging to the current commit; leave unrelated working-tree and pre-existing staged changes untouched.
+- **Review Before Commit:** Run `git diff --staged` after staging. If it mixes unrelated work, adjust the staging before continuing.
 
 ### 3. Generate Commit Message
 Draft a concise message (subject < 72 chars) that perfectly matches the detected style.
@@ -32,6 +43,7 @@ Draft a concise message (subject < 72 chars) that perfectly matches the detected
 - **Pick the dominant change:** Prefer the primary reason the commit exists, not every file touched.
 - **One emoji per atomic commit:** Split unrelated work into separate commits instead of stacking multiple emojis into one subject.
 - **Conventional Commits:** Include appropriate scope if used in the repo (e.g., `feat(auth):`).
+- **No AI Attribution:** Do not mention AI agents, AI tools, assisted generation, or authorship claims in commit messages unless the repository change is directly about that tool as product content.
 
 #### Gitmoji Quick Reference
 Use this compact embedded set for the vast majority of commits:
@@ -100,6 +112,7 @@ git commit -m "YOUR_GENERATED_MESSAGE"
 
 ## ⚠️ Constraints & Error Handling
 - **NEVER PUSH:** Stop immediately after creating the commit(s).
+- **No History Rewrites or Cleanup:** Do not amend, rebase, reset, force-push, run `git clean -fd`, or use similar destructive commands.
 - **No History:** If no commit history exists, default to Conventional Commits (`feat:`, `fix:`, etc.).
-- **Staging/Commit Failures:** If `git status` or `git diff --staged` shows issues, report the specific error to the user and halt. Do not retry automatically.
-- **Verification:** Print the final commit message(s) used with a success indicator (e.g., `✅ Committed: "..."`).
+- **Staging/Commit Failures:** If staging, hooks, or `git commit` fail, report the exact failure and halt. Do not bypass hooks, retry automatically, or broaden staging.
+- **Verification:** Print each final commit's short hash and subject with a success indicator (e.g., `✅ Committed: abc1234 feat: add import validation`).
