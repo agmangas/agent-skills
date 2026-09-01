@@ -56,6 +56,8 @@ Create one internal record for each mention that may affect the assessment.
 
 Use exact proposal wording only in the evidence map. Paraphrase it in the final report.
 
+Build a separate led-output register for every deliverable and milestone whose formal lead is the target organisation, even when the related role is not otherwise core. For each item, record its type, ID, title, timing or due date, practical output, parent WP or action, and source.
+
 ## 4. Classify the role
 
 ### Core
@@ -182,13 +184,17 @@ Use a top-down flowchart unless the journey is very short.
 - Do not place full task descriptions inside nodes.
 - Add a one-sentence legend below the diagram.
 
-### Relative Gantt
+### Gantt calendar and entries
 
-Use a relative calendar when the proposal gives project months but no confirmed project start date.
+Choose the Gantt start date in this order:
 
-- Set project month M1 to `2000-01-01`.
-- Start of Mn = `2000-01-01` plus `n - 1` calendar months.
-- End of an inclusive range ending in Mn = the first day after month n.
+1. the user's valid `project_start_date` in `YYYY-MM-DD` format;
+2. a confirmed proposal start date;
+3. the relative-calendar fallback, with M1 set to `2000-01-01`.
+
+For a real start date, start of Mn = the selected start date plus `n - 1` calendar months. End of an inclusive task range ending in Mn = the selected start date plus `n` calendar months; this is Mermaid's exclusive end boundary. A milestone or deliverable due in Mn occurs on the final day of that project month: the selected start date plus `n` calendar months minus one day. Use the same rules for the relative fallback.
+
+If the user supplies a start date that conflicts with the proposal, use the supplied date for the chart and state the conflict as an evidence limitation. If the supplied date is not a valid calendar date, ask for a valid date rather than guessing.
 
 Examples:
 
@@ -198,17 +204,20 @@ Examples:
 | M3-M24 | 2000-03-01 | 2002-01-01 |
 | M12-M30 | 2000-12-01 | 2002-07-01 |
 
-State above the Gantt that these dates are illustrative. They represent project months, not actual commitments.
+A milestone or deliverable due in M12 occurs on `2000-12-31` in the relative calendar.
 
-Group entries by WP. Prefix each entry with one of:
+State above the Gantt whether dates are actual calendar dates and name their source, or are illustrative relative project months.
 
-- `[WP lead]`
-- `[Task lead]`
-- `[Major]`
+Group entries by WP or action. Include:
 
-Use unique, simple Mermaid IDs. Include only core activities with reliable timing. List activities with missing or unclear timing below the diagram.
+- every target-led task with reliable timing, labelled `[Task lead]`;
+- every major non-led task with reliable timing, labelled `[Major task]`;
+- every target-led milestone with a reliable date, labelled `[Milestone]`;
+- every target-led deliverable with a reliable due date, labelled `[Deliverable]`.
 
-If the proposal gives a confirmed start date and the user wants actual dates, use it instead of the relative calendar.
+Render milestones and deliverables as Mermaid `milestone` entries with unique, simple IDs and a `0d` duration. Render tasks as date-range bars. List led outputs and tasks with missing or unclear timing below the diagram; do not invent dates.
+
+Use the led-output register to ensure that every organisation-led deliverable and milestone appears either in the Gantt or in the omitted-timing list.
 
 ## 10. Handle common proposal problems
 
@@ -218,7 +227,7 @@ Some proposals repeat management or communication WPs for each reporting period.
 
 ### Missing dates
 
-Write “timing not stated.” Omit the activity from the Gantt. Never infer a range from a deliverable date alone unless the proposal says the deliverable covers the task period.
+Write “timing not stated.” Omit the activity from the Gantt and retain it in the led-output table and omitted-timing list. Never infer a task range from a deliverable date alone unless the proposal says the deliverable covers the task period.
 
 ### Numbering errors
 
@@ -237,7 +246,7 @@ Horizon Europe proposals commonly use WPs, tasks, deliverables and KERs. LIFE pr
 Before writing:
 
 - verify every core role against at least the task heading and task body;
-- cross-check deliverable ownership and timing;
+- cross-check every target-led deliverable and milestone for ownership and timing;
 - check the effort table when reliable;
 - confirm methodology links in the methodology text;
 - confirm partner boundaries in the same task or a directly related task;

@@ -15,6 +15,7 @@ Add a short source note:
 - source document or documents;
 - target organisation and confirmed aliases;
 - scope used for “major contribution”;
+- Gantt date source, when a real calendar start date is used;
 - important extraction limitations, if any.
 
 ### Executive summary
@@ -68,6 +69,16 @@ For each core task, use this pattern:
 
 End each WP section with a short statement of the practical result.
 
+### Organisation-led milestones and deliverables
+
+List every milestone and deliverable formally led by the target organisation, including items outside the core-role assessment. Keep the description concise.
+
+| Type | ID and title | Due timing | Practical output | Evidence |
+|---|---|---|---|---|
+| Milestone or deliverable | [ID] - [Short title] | [Project month or calendar date] | [What it provides] | [Source] |
+
+Write `timing not stated` when needed. Do not omit a led output from this table because its timing is missing.
+
 ### Journey through the project
 
 Explain the journey as numbered steps. Use dependency order.
@@ -106,29 +117,34 @@ Replace every placeholder. Add a short legend in prose.
 
 ### Mermaid Gantt
 
-Introduce the chart with:
+When using the relative-calendar fallback, introduce the chart with:
 
 > The dates below are illustrative. January 2000 represents project month M1; the chart shows relative project timing, not actual calendar commitments.
+
+When using a real calendar start date, introduce the chart with:
+
+> The dates below use the project start date of [YYYY-MM-DD] from [user input or proposal source]. They represent the project's calendar timeline.
 
 Use this structure:
 
 ```mermaid
 gantt
-    title [Organisation] core contribution timeline
+    title [Organisation] commitments and led outputs timeline
     dateFormat YYYY-MM-DD
     axisFormat %b %Y
 
     section WP or action 1
-    [WP lead] Short activity name :task1, 2000-01-01, 2001-01-01
-    [Major] Short activity name   :task2, 2000-04-01, 2001-07-01
+    [Task lead] Short activity name      :task1, 2000-01-01, 2001-01-01
+    [Deliverable] D1 Short output name   :milestone, deliv1, 2000-12-31, 0d
+    [Milestone] MS1 Short checkpoint     :milestone, mile1, 2001-03-31, 0d
 
     section WP or action 2
-    [Task lead] Short activity name :task3, 2001-01-01, 2002-01-01
+    [Major task] Short activity name :task2, 2001-01-01, 2002-01-01
 ```
 
-Replace every placeholder. Keep task labels short. Use the conversion rules in `analysis-method.md`.
+Replace every placeholder. Keep labels short. Distinguish target-led tasks from major non-led tasks, and include every target-led deliverable and milestone with a reliable due date. Use the conversion rules in `analysis-method.md`.
 
-Below the chart, list core activities omitted because their timing is missing or unclear.
+Below the chart, list tasks and organisation-led milestones or deliverables omitted because their timing is missing or unclear.
 
 ### Responsibility boundaries at a glance
 
@@ -228,6 +244,7 @@ Check every section:
 - Does any sentence carry too many ideas?
 - Does any paragraph repeat proposal language instead of explaining it?
 - Are Mermaid labels short enough to scan?
-- Does the Gantt state that its dates are illustrative?
+- Does the Gantt state whether dates are actual or illustrative, and name the source of actual dates?
+- Does the Gantt include tasks, milestones, and deliverables, with every organisation-led output shown or listed as lacking timing?
 
 Rewrite any passage that fails one of these checks. Preserve the underlying evidence while simplifying the language.

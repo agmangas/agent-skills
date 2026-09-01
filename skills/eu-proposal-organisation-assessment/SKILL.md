@@ -25,7 +25,7 @@ Require:
 - the proposal document or documents;
 - the target organisation's legal name, acronym, or both.
 
-Accept an optional output path and user-defined scope. If the user gives no scope, analyse core roles in depth. Summarise smaller named roles separately. Omit routine all-partner participation from the main assessment.
+Accept an optional output path, user-defined scope, and `project_start_date` in `YYYY-MM-DD` format. Use a supplied start date for the Gantt's real calendar timeline; otherwise use a confirmed proposal start date, then the relative-calendar fallback. If the user gives no scope, analyse core roles in depth. Summarise smaller named roles separately. Omit routine all-partner participation from the main assessment.
 
 Discover aliases from participant tables and partner descriptions. Confirm that each alias refers to the same organisation before combining matches.
 
@@ -48,6 +48,8 @@ Build an internal evidence map before writing. For each possible role, record:
 
 Resolve differences by reporting them, not by silently choosing one statement. A formal task lead may still build only one subsystem. State both the formal accountability and the detailed implementation split.
 
+Build a separate internal register of every deliverable and milestone formally led by the target organisation, including items outside the core-role assessment. Record its ID, title, timing, practical output, and source.
+
 ## Output
 
 Use [references/report-template.md](references/report-template.md). Produce a self-contained Markdown report in the user's language unless asked otherwise.
@@ -61,6 +63,7 @@ The report must include:
 - the organisation's journey through the project;
 - a GitHub-compatible Mermaid flowchart;
 - a GitHub-compatible Mermaid Gantt;
+- a concise list of every milestone and deliverable led by the organisation;
 - smaller downstream or supporting roles;
 - a final statement of what the organisation does and does not own;
 - evidence limitations when the source is incomplete or inconsistent.
