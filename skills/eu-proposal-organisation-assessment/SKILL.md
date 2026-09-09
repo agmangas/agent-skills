@@ -2,7 +2,7 @@
 name: eu-proposal-organisation-assessment
 description: >-
   Assess a named organisation's role in a Horizon Europe or LIFE proposal.
-  Cover leadership, major contributions, partner boundaries, outputs, methodology links, effort, and timing.
+  Cover leadership, major contributions, partner boundaries, outputs, required technologies and expertise, methodology links, effort, and timing.
   Produce a clear Markdown report with Mermaid journey and Gantt diagrams.
   Do not use for general proposal scoring or evaluation.
 ---
@@ -11,12 +11,13 @@ description: >-
 
 Produce a clear, evidence-based account of one organisation's role in a Horizon Europe or LIFE proposal.
 
-The report must answer four questions:
+The report must answer five questions:
 
 1. Where does the organisation lead or make a major contribution?
 2. What is it expected to deliver in practical terms?
-3. Where do its responsibilities stop and another partner's begin?
-4. How does its work move through the project from early inputs to final use?
+3. What technologies and domain knowledge must it bring?
+4. Where do its responsibilities stop and another partner's begin?
+5. How does its work move through the project from early inputs to final use?
 
 ## Inputs
 
@@ -43,6 +44,7 @@ Build an internal evidence map before writing. For each possible role, record:
 - other partners' stated duties;
 - timing and effort, when available;
 - linked methodology Element, objective, component, result, or key exploitable result;
+- required technologies, standards, or domain knowledge, and whether each is stated or implied;
 - source location;
 - role level: core, supporting boundary, or routine mention.
 
@@ -60,6 +62,7 @@ The report must include:
 - the core WP and task assessment;
 - explicit responsibility boundaries with named partners;
 - links to the proposal's methodology concepts;
+- the technologies and domain knowledge the organisation must bring, with the basis for each;
 - the organisation's journey through the project;
 - a GitHub-compatible Mermaid flowchart;
 - a GitHub-compatible Mermaid Gantt;
@@ -90,6 +93,8 @@ Before delivering, perform the clarity review in the report template. Rewrite an
 - Do not infer ownership from a participant list alone.
 - Do not use person-months as the sole reason to call a contribution major.
 - Do not invent missing dates, deliverables, methodology links, or partner duties.
+- Do not derive a required capability from the organisation's sector, track record, or capacity description.
+- Do not list a technology that only another partner's duty requires.
 - Distinguish proposal facts from reasonable interpretation.
 - Cite task IDs, deliverable IDs, table names, section names, or reliable page numbers close to the relevant claim.
 - State when OCR, conversion, missing tables, or inconsistent drafting limits confidence.

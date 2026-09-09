@@ -69,6 +69,28 @@ For each core task, use this pattern:
 
 End each WP section with a short statement of the practical result.
 
+### Required technologies and domain knowledge
+
+Open with one sentence naming the two or three capabilities that dominate the role.
+
+List every technology, standard, discipline or field of knowledge the organisation must bring to do its stated work. Mark each entry as stated in the proposal or implied by the work the proposal describes.
+
+| Category | Capability | Basis | Why it is needed | Evidence |
+|---|---|---|---|---|
+| [Category] | [Technology, standard, discipline or knowledge] | Stated or implied | [One sentence tying it to the stated duty] | [Task, action, deliverable, table or section] |
+
+Group rows by category. Order categories by importance to the role. Omit a category with no entries. Do not write `none`.
+
+For an implied capability, name the class and give examples: `a low-level language such as C or C++`. Do not name a product the proposal does not name.
+
+Keep standard, language and formal technology names in their original form, even when the report is written in another language.
+
+Close with neighbouring capabilities that another partner provides, and only where a reader could misattribute them:
+
+**Capabilities the organisation does not need to provide**
+
+- [Capability] - provided by [Partner] ([Evidence])
+
 ### Organisation-led milestones and deliverables
 
 List every milestone and deliverable formally led by the target organisation, including items outside the core-role assessment. Keep the description concise.
@@ -246,5 +268,6 @@ Check every section:
 - Are Mermaid labels short enough to scan?
 - Does the Gantt state whether dates are actual or illustrative, and name the source of actual dates?
 - Does the Gantt include tasks, milestones, and deliverables, with every organisation-led output shown or listed as lacking timing?
+- Is every implied capability traced to stated work rather than to the organisation's profile?
 
 Rewrite any passage that fails one of these checks. Preserve the underlying evidence while simplifying the language.

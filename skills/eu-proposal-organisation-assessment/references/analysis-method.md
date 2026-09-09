@@ -50,6 +50,8 @@ Create one internal record for each mention that may affect the assessment.
 | Timing | Project-month range or stated date |
 | Effort | Target person-months and relevant WP total, when available |
 | Methodology anchor | Element, stage, objective, component, result or KER |
+| Required capability | Technology, standard, discipline or knowledge the target's duty requires |
+| Capability basis | Stated or implied, with the licensing wording when implied |
 | Source | Task ID, table, section or reliable page |
 | Role level | Core, supporting boundary or routine mention |
 | Confidence | High, medium or limited, with reason if not high |
@@ -138,7 +140,66 @@ Do not collapse these into one claim. State each layer separately.
 
 If the task heading says the target leads, but the body assigns most development to other partners, report both facts. Describe the target as formally accountable for the task, then name its concrete build duty.
 
-## 7. Link work to the project concept
+## 7. Derive the capability profile
+
+Identify the technologies, standards and expertise the target organisation must bring to do its stated work.
+
+Work from the duty, not from the organisation. A capability belongs in the profile only when a duty assigned to the target requires it.
+
+Derive capabilities from every core role. Add one from a supporting-boundary role only when its duty needs something distinctive, such as a named domain review. Ignore routine mentions.
+
+### Evidence basis
+
+Mark every capability with one of two bases:
+
+- Stated: the proposal names the technology, standard, discipline or knowledge in the target's own duty, output, work package or action.
+- Implied: the proposal describes work that cannot be delivered without the capability, but does not name it.
+
+Admit an implied capability only when the stated duty could not be delivered without it. “Necessarily requires” meets the bar. “Typically involves” does not.
+
+Record the licensing wording in the evidence map. Name the capability class, not a product: write `a low-level language such as C or C++`, not `C++17`.
+
+Basis and confidence are separate. A named standard in a drafting placeholder is stated but of limited confidence.
+
+### Excluded sources
+
+Never derive a capability from:
+
+- the organisation's sector, size, legal type or name;
+- its past projects, references or track record;
+- another partner's duty;
+- effort figures;
+- routine all-partner duties;
+- what the field usually requires.
+
+The participant capacity section may corroborate a capability that a duty already requires. It cannot create one, and it cannot turn an implied entry into a stated one.
+
+### Boundary rule
+
+Exclude any capability required only by another partner's duty. If Partner B builds the calculation engine in Fortran, the target does not need Fortran.
+
+Report such capabilities separately, and only where a reader could reasonably misattribute them.
+
+### Categories
+
+Group capabilities under these categories. Omit a category with no entries.
+
+| Category | Covers |
+|---|---|
+| Software technologies | Languages, runtimes, frameworks, platforms and tooling |
+| Standards, data models and protocols | Named standards, schemas, exchange formats and interfaces |
+| Engineering and scientific disciplines | Bodies of expertise the organisation must staff |
+| Methods and techniques | Named procedures the organisation must execute |
+| Domain and sector knowledge | The system, sector or environment the work acts on |
+| Regulatory and policy knowledge | Directives, permits, reporting duties and procurement rules |
+
+Use disciplines for expertise and methods for procedures. Record each capability once, in its closest category.
+
+Name transferable expertise, not the work breakdown. `Task 3.2 implementation` is not a capability.
+
+Read [capability-signals.md](capability-signals.md) before deriving implied capabilities.
+
+## 8. Link work to the project concept
 
 Use the proposal's own conceptual structure.
 
@@ -154,7 +215,7 @@ Do not invent “Elements” when the proposal has none. Use the closest named s
 
 For each core task, link only the concepts supported by the text. Distinguish a direct link from a broader WP-level association.
 
-## 8. Construct the organisation's journey
+## 9. Construct the organisation's journey
 
 Order the organisation's work by dependency, not only by WP number.
 
@@ -170,7 +231,7 @@ A useful journey usually shows:
 
 At every step, say who owns the next stage. The journey should make handovers visible.
 
-## 9. Build the Mermaid diagrams
+## 10. Build the Mermaid diagrams
 
 ### Journey flowchart
 
@@ -219,7 +280,7 @@ Render milestones and deliverables as Mermaid `milestone` entries with unique, s
 
 Use the led-output register to ensure that every organisation-led deliverable and milestone appears either in the Gantt or in the omitted-timing list.
 
-## 10. Handle common proposal problems
+## 11. Handle common proposal problems
 
 ### Repeated reporting-period WPs
 
@@ -241,7 +302,7 @@ Treat highlighted placeholders, blank months and unresolved partner names as sou
 
 Horizon Europe proposals commonly use WPs, tasks, deliverables and KERs. LIFE proposals may use actions, milestones, indicators and continuation plans. Apply the same role and boundary logic to the source's terms.
 
-## 11. Final evidence check
+## 12. Final evidence check
 
 Before writing:
 
@@ -250,4 +311,6 @@ Before writing:
 - check the effort table when reliable;
 - confirm methodology links in the methodology text;
 - confirm partner boundaries in the same task or a directly related task;
+- confirm that every implied capability is licensed by quoted duty wording;
+- confirm that no capability in the profile belongs only to another partner's duty;
 - record any unresolved conflict.
